@@ -6,7 +6,10 @@ import json
 import os
 import time
 
-HN_JSON_PATH = '/home/rdelaney/hn_json/'
+from optparse import OptionParser
+
+#HN_JSON_PATH = '/home/rdelaney/hn_json/'
+HN_JSON_PATH = './'
 
 
 def calculate_from_timestamp(timedelta):
@@ -61,7 +64,11 @@ def remove_after_time(entries, from_time):
 		if entry["unix_time"] < from_time]
 
 if __name__ == "__main__":
-	timedelta = 1 # days
+	parser = OptionParser()
+	parser.add_option('--days', dest='days',
+		default=1, help='Number of days to be included in digest')
+	(options, args) = parser.parse_args()
+	timedelta = options.days # days
 	from_time = calculate_from_timestamp(timedelta)
 	filenames = grab_file_names(from_time)
 	links = []
