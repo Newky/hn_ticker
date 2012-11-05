@@ -8,8 +8,7 @@ import time
 
 from optparse import OptionParser
 
-#HN_JSON_PATH = '/home/rdelaney/hn_json/'
-HN_JSON_PATH = './'
+HN_JSON_PATH = '/home/rdelaney/hn_json/'
 
 
 def calculate_from_timestamp(timedelta):
