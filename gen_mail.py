@@ -67,7 +67,7 @@ if __name__ == "__main__":
 	parser.add_option('--days', dest='days',
 		default=1, help='Number of days to be included in digest')
 	(options, args) = parser.parse_args()
-	timedelta = options.days # days
+	timedelta = int(options.days) # days
 	from_time = calculate_from_timestamp(timedelta)
 	filenames = grab_file_names(from_time)
 	links = []
