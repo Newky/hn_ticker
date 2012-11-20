@@ -32,7 +32,9 @@ def get_links(fname):
 	filename = '%s_hn.json' % fname
 	filename = os.path.join(HN_JSON_PATH, filename)
 	with open(filename, "rb") as inputfilename:
-		json_content = json.loads(inputfilename.read())
+		content = inputfilename.read()
+		if len(content) > 0:
+			json_content = json.loads(inputfilename.read())
 		return json_content
 
 
@@ -48,6 +50,8 @@ def print_link(link):
 def remove_duplicates(sorted_list, key='url'):
 	exists = {}
 	for link in sorted_list:
+		if link == {}:
+			continue
 		url = link['url']
 		if url in exists:
 			if exists[url]["score"] < link['score']:
