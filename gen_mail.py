@@ -34,7 +34,7 @@ def get_links(fname):
 	with open(filename, "rb") as inputfilename:
 		content = inputfilename.read()
 		if len(content) > 0:
-			json_content = json.loads(inputfilename.read())
+			json_content = json.loads(content)
 		return json_content
 
 
