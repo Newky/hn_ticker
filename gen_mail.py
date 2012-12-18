@@ -16,7 +16,7 @@ def calculate_from_timestamp(timedelta):
 	now = datetime.datetime.now()
 	since_date = now - time_since
 	return int(time.mktime(since_date.timetuple()))
-	
+
 
 def grab_file_names(from_timestamp):
 	filenames = os.listdir(HN_JSON_PATH)
@@ -35,6 +35,8 @@ def get_links(fname):
 		content = inputfilename.read()
 		if len(content) > 0:
 			json_content = json.loads(content)
+        else:
+            return {}
 		return json_content
 
 
