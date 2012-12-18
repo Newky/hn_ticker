@@ -35,8 +35,8 @@ def get_links(fname):
 		content = inputfilename.read()
 		if len(content) > 0:
 			json_content = json.loads(content)
-        else:
-            return {}
+		else:
+			return {}
 		return json_content
 
 
